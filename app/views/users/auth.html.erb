@@ -1,0 +1,5 @@
+<%= form_for @user, url: { action: "check" }, html: { class: "reg_form" }  do |f| %>
+<p> Login:</br> <%= f.text_field :login %> </p>
+<p> Password:</br> <%= f.text_field :password %> </p>
+<p> <%= submit_tag "Log in" %> </p>
+<% end %>
