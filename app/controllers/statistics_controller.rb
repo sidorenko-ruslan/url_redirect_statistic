@@ -16,6 +16,7 @@ class StatisticsController < ApplicationController
 	end
 
 	def create
+		p params
 		installation = Installation.find_by_device_id( params[:device_id] )
 		if (installation.blank?)
 			Installation.create( source: params[:source], device_id: params[:device_id] )
@@ -23,7 +24,7 @@ class StatisticsController < ApplicationController
 
 		statistic = Statistic.find_by_date_and_source( Date.today.to_s, params[:source] )
 		if (statistic.blank?)
-			Statistic.create( { date: Date.today.to_s, count: params[:count] } )
+			Statistic.create( { date: Date.today.to_s, count: params[:count], source: params[:source] } )
 		else
 			Statistic.where( source: params[:source], date: Date.today.to_s).update_all( count: params[:count] )
 		end

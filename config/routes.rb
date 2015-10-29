@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   root 'users#auth'
   get "users/auth"
   get "users/logout"
+  post "users/check"
 
   get "statistics/index"
-  post "users/check"
+  post "statistics/create"
+ 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
