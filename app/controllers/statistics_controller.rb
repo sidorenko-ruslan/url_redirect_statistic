@@ -3,8 +3,19 @@ class StatisticsController < ApplicationController
 	def index
 		@user = User.find_by_id(session[:user_id])
 		if (@user)
-			@installations = Installation.all
-			@statistics = Statistic.all
+			@installations
+			@statistics
+			@header_title
+			period = params[:query]
+			if (period == "all" || period == nil)
+				@header_title = "Amount"
+				@installations = Installation.all
+				@statistics = Statistic.order( date: :desc )
+			elsif (period == "month")
+				@header_title = "Last 30 days"
+				@installations = Installation.where(created_at: 1.month.ago..Time.now)
+				@statistics = Statistic.where(date: 1.month.ago..Time.now).order( date: :desc )
+			end
 			@translate_count = 0
 
 			@statistics.each do |i|

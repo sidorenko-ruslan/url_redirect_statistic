@@ -1,10 +1,14 @@
-<%= link_to "Logout", :controller => "users", :action => "logout" %>
-<p>Total number of installations: <%= @installations.count %> </p></br>
-<p>Total number of translated URL: <%= @translate_count %> </p></br>
-<% if @statistics %>
+<ul>
+	<li><%= link_to "Amount", :controller => "statistics", :action => "index", :query => "all" %> </li>
+	<li><%= link_to "Last 30 days", :controller => "statistics", :action =>"index", :query => "month" %> </li>
+	<li><%= link_to "Logout", :controller => "users", :action => "logout" %> </li>
+</ul>
+</br>
+<h1><%= @header_title %> </h1>
+<% if @statistics.count > 0 %>
 <table>
 	<tr>
-		<th>Date</th>
+		<th>Date &nbsp;&nbsp;&nbsp</th>
 		<th>Source</th>
 		<th>Count</th>
 	</th>
@@ -19,3 +23,5 @@
  <% else %>
  	<p>Statistic is empty </p>
  <% end %>
+<p class="stat">Total number of installations: <%= @installations.count %> </p>
+<p class="stat">Total number of translated URL: <%= @translate_count %> </p>
