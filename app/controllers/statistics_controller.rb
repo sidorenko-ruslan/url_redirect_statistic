@@ -19,6 +19,7 @@ class StatisticsController < ApplicationController
 		installation = Installation.find_by_device_id( params[:device_id] )
 		if (installation.blank?)
 			Installation.create( source: params[:source], device_id: params[:device_id] )
+		end
 
 		statistic = Statistic.find_by_date_and_source( Date.today.to_s, params[:source] )
 		if (statistic.blank?)
