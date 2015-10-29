@@ -11,9 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028125950) do
+ActiveRecord::Schema.define(version: 20151029110240) do
 
   create_table "installations", force: :cascade do |t|
+    t.string   "source"
+    t.string   "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statistics", force: :cascade do |t|
     t.date     "date"
     t.integer  "count"
     t.string   "source"

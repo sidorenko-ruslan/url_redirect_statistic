@@ -1,0 +1,21 @@
+<%= link_to "Logout", :controller => "users", :action => "logout" %>
+<p>Total number of installations: <%= @installations.count %> </p></br>
+<p>Total number of translated URL: <%= @translate_count %> </p></br>
+<% if @statistics %>
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Source</th>
+		<th>Count</th>
+	</th>
+	<% @statistics.each do |s| %>
+  	<tr>
+  		<td><%= s.date %></td>
+  		<td><%= s.source %></td>
+  		<td><%= s.count %></td>
+  	</tr>
+ 	<% end %>
+ </table>
+ <% else %>
+ 	<p>Statistic is empty </p>
+ <% end %>
