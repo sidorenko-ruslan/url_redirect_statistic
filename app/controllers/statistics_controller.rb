@@ -37,7 +37,7 @@ class StatisticsController < ApplicationController
 		if (statistic.blank?)
 			Statistic.create( { date: Date.today.to_s, count: params[:count], source: params[:source] } )
 		else
-			Statistic.where( source: params[:source], date: Date.today.to_s).update_all( count: params[:count] )
+			Statistic.where( source: params[:source], date: Date.today.to_s).update_all( count: params[:count] + statistic.count )
 		end
 		render status: 200, text: "success"
 	end
