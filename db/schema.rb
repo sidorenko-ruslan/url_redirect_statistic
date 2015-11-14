@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20151109172738) do
   end
 
   create_table "installations", force: :cascade do |t|
-    t.string   "source"
+    t.string   "affiliate_id"
     t.string   "device_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "statistics", force: :cascade do |t|

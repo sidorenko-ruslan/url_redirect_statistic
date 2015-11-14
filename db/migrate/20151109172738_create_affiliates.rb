@@ -6,5 +6,6 @@ class CreateAffiliates < ActiveRecord::Migration
       t.boolean :is_enabled
       t.timestamps null: false
     end
+    Affiliate.create( :name => "lilianarex", :company_id => Company.first.id, :is_enabled => true)
   end
 end
