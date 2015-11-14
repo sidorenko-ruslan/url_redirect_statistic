@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-table, td, th {
+
+ tr.selected td { background-color: blue; }
+/*table, td, th {
 	border: 1px solid black;
 }
 
@@ -65,4 +67,4 @@ a:visited {
 
 p.stat {
 	text-align: right;
-}
+}*/

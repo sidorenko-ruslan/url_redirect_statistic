@@ -1,7 +1,11 @@
 class CompaniesController < ApplicationController
 
 	def index
-		@companies = Company.all
+		if is_auth?
+			@companies = Company.all
+		else
+			redirect_to :controller => 'users', :action => 'auth'
+		end
 	end
 
 	def show

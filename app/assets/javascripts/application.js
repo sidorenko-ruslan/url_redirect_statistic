@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+
+
+jQuery(function($) { 
+	$('#data tr').click(function(e) {
+		$('#data tr')removeClass('selected');
+		$(this).toggleClass('selected');
+	});
+});

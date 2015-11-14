@@ -11,9 +11,17 @@
   		<div class="container-fluid">
   			<% if is_auth? %>
   				<ul class="nav navbar-nav">
+
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Statistic <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Amount", :controller => "statistics", :action => "index", :query => "all" %></li>
+                <li><%= link_to "Last 30 days", :controller => "statistics", :action => "index", :query => "month" %></li>
+              </ul>
+            </li>
+
+
+            <li><%= link_to "Affiliates", :controller => "affiliates", :action => "index" %></li>
   					<li><%= link_to "Companies", :controller => "companies", :action => "index" %></li>
-  					<li><%= link_to "Affiliates", :controller => "affiliates", :action => "index" %></li>
-  					<li><%= link_to "Statistic", :controller => "statistics", :action => "index" %></li>
   				</ul>
   				<ul class="nav navbar-nav navbar-right">
   					<li><%= link_to "Log out", :controller=> "users", :action => "logout" %></li>

@@ -4,5 +4,6 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :name
       t.timestamps null: false
     end
+    Company.create( :name => "cpa.clicksure")
   end
 end

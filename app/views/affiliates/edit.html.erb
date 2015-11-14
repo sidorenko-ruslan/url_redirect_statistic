@@ -1,9 +1,9 @@
 <div class="container">
-	<%= form_for @affiliate, url: { action: "create" }, html: { class: "form-group" }  do |f| %>
+	<%= form_for @affiliate, url: { action: "update" }, html: { class: "form-group" }  do |f| %>
 <p> Name:</br> <%= f.text_field( :name, class: "form-control") %> </p>
 <p> Company:</br> <%= f.select :company_id, @companies.map { |c| [c.name, c.id] }, {},  { :class => "form-control" } %> </p>
 <div class="checkbox"><label><%= f.check_box :is_enabled %> Enabled </label> 
 </div>
-<p> <%= submit_tag "Create", class: "btn btn-lg btn-primary btn-block" %> </p>
+<p> <%= submit_tag "Change", class: "btn btn-lg btn-primary btn-block" %> </p>
 <% end %>
 </div>

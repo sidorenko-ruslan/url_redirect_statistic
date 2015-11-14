@@ -1,49 +1,23 @@
 <div class="row">
-<div class="col-sm-9 col-sm-offset-3 main">
-	<div class="table-responsive">
-	<table class="table table-stripped">
-		<tr>
-			<th>Date</th>
-			<th>Affiliate</th>
-			<th>Count</th>
-		</tr>
-		<% @statistics.each do |s| %>
-			<tr>
-				<td><%= s.date %> </td>
-				<td><%= s.affiliate.name %> </td>
-				<td><%= s.count %> </td>
-			</tr>
-		<% end %>
-	</table>
+	<div class="col-md-9 col-md-offset-3 main">
+		<h1 class="text-center"><%= @header_title %> </h1>
+		<div class="table-responsive">
+			<table id="data" class="table table-stripped">
+				<tr>
+					<th>Date</th>
+					<th>Affiliate</th>
+					<th>Count</th>
+				</tr>
+				<% @statistics.each do |s| %>
+					<tr>
+						<td><%= s.date %> </td>
+						<td><%= s.affiliate.name %> </td>
+						<td><%= s.count %> </td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+		<p class="text-right">Total number of installations: <%= @installations.count %> </p>
+		<p class="text-right">Total number of translated URL: <%= @translate_count %> </p>
+	</div>
 </div>
-</div>
-</div>
-
-
-<!-- <ul>
-	<li><%= link_to "Amount", :controller => "statistics", :action => "index", :query => "all" %> </li>
-	<li><%= link_to "Last 30 days", :controller => "statistics", :action =>"index", :query => "month" %> </li>
-	<li><%= link_to "Logout", :controller => "users", :action => "logout" %> </li>
-</ul> -->
-<!-- </br>
-<h1><%= @header_title %> </h1>
-<% if @statistics.count > 0 %>
-<table>
-	<tr>
-		<th>Date &nbsp;&nbsp;&nbsp</th>
-		<th>Affiliate</th>
-		<th>Count</th>
-	</tr>
-	<% @statistics.each do |s| %>
-  	<tr>
-  		<td><%= s.date %></td>
-  		<td><%= s.source %></td>
-  		<td><%= s.count %></td>
-  	</tr>
- 	<% end %>
- </table>
- <% else %>
- 	<p>Statistic is empty </p>
- <% end %>
-<p class="stat">Total number of installations: <%= @installations.count %> </p>
-<p class="stat">Total number of translated URL: <%= @translate_count %> </p> -->
