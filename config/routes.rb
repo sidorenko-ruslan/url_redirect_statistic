@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "statistics/index"
   get "statistics/get_data"
   post "statistics/create"
+
+  get "users/toggle"
  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

@@ -59,6 +59,5 @@ class StatisticsController < ApplicationController
 		else
 			render status: 200, text: "no data"
 		end
-
 	end
 end

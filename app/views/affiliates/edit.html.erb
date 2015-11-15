@@ -4,6 +4,9 @@
 <p> Company:</br> <%= f.select :company_id, @companies.map { |c| [c.name, c.id] }, {},  { :class => "form-control" } %> </p>
 <div class="checkbox"><label><%= f.check_box :is_enabled %> Enabled </label> 
 </div>
-<p> <%= submit_tag "Change", class: "btn btn-lg btn-primary btn-block" %> </p>
+<div class="btn-group-horizontal">
+	<%= submit_tag "Change", class: "btn btn-lg btn-primary btn-block" %>
+	<%= link_to "Back", :back,  {class: "btn btn-lg btn-primary btn-block"} %>
+</div>
 <% end %>
 </div>

@@ -29,4 +29,14 @@ class UsersController < ApplicationController
 		session[:user_id] = nil
 		redirect_to :controller => 'users', :action => 'auth'
 	end
+
+	def toggle
+		command = params[:command]
+		if (command == "disable") 
+			Affiliate.update_all( is_enabled: false)
+		elsif (command == "enable")
+			Affiliate.update_all( is_enabled: true)
+		end
+		redirect_to :controller => "affiliates", :action => "index"
+	end
 end
