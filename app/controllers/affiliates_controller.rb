@@ -23,20 +23,12 @@ class AffiliatesController < ApplicationController
 
 	def create
 		if is_auth?
-			#@affiliate = Affiliate.find_by_name(params[:affiliate][:name])
-			#if (@affiliate.blank?)
 				@affiliate = Affiliate.create(affiliate_params)
-				#p @affiliate.errors
 				if @affiliate.errors.empty?
 					redirect_to :controller => "affiliates", :action => "index"
 				else
 					render "new"
 				end
-			#else
-				#@affiliate.is_deleted = false
-				#@affiliate.is_enabled = params[:affiliate][:is_enabled]
-				#@affiliate.save
-			#end
 		else
 			redirect_to :controller => 'users', :action => 'auth'
 		end
@@ -69,6 +61,8 @@ class AffiliatesController < ApplicationController
 		if is_auth?
 			@affiliate = Affiliate.find(params[:id])
 			@affiliate.is_deleted = true
+			@affiliate.is_enabled = false
+			@affiliate.name = "#{@affiliate.name}[deleted]"
 			@affiliate.save
 			redirect_to :controller => "affiliates", :action => "index"
 		else
