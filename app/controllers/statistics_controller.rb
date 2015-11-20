@@ -20,6 +20,8 @@ class StatisticsController < ApplicationController
 	 		@translate_count = 0
 
 	 		@statistics.each do |i|
+	 			a = Affiliate.find_by_id(i.affiliate_id)
+	 			next if a.is_deleted
 	 			@translate_count += i[:count]
 	 		end
 		else

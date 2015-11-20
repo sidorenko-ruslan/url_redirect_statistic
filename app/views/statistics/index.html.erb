@@ -9,8 +9,8 @@
 					<th>Count</th>
 				</tr>
 				<% @statistics.each do |s| %>
-					a = Affiliate.find_by_id(s.affiliate_id)
-					next if a.is_deleted || s.count == 0
+					<% a = Affiliate.find_by_id(s.affiliate_id) %>
+					<% next if a.is_deleted || s.count == 0 %>
 					<tr>
 						<td><%= s.date %> </td>
 						<td><%= a.name %> </td>
