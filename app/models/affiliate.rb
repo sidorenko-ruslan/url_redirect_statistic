@@ -1,5 +1,5 @@
 class Affiliate < ActiveRecord::Base
-	#validates :name, presense: true
+	validates :name, presence: true
 	belongs_to :company
 	default_scope { order('name') }
 
